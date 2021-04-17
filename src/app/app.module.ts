@@ -11,6 +11,8 @@ import { DashboardComponent } from './components/login/dashboard/dashboard.compo
 import { AuthService } from './shared/services/auth/auth.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     ForgotPasswordComponent,
     DashboardComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgbModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
