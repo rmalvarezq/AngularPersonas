@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
 
     <div class="card" style="width: 18rem;">
         <img class="card-img-top"
@@ -13,4 +13,41 @@
             <button type="button" class="btn btn-primary" (click)="createProduct()">Agregar nuevo Producto</button>
         </div>
     </div>
+</div> -->
+
+<div class="container ">
+    <div class="col-md-12 my-4">
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary" (click)="createProduct()">Agregar nuevo Producto</button>
+        </div>
+    <table class="table table-responsive table-striped mx-auto">
+        <thead>
+            <tr>
+                <th class="center">#</th>
+                <th class="center">Nombre</th>
+                <th class="center">Precio</th>
+                <th class="center">Categoría</th>
+                <th class="center">estado</th>
+                <th class="center">Descuento</th>
+                <th class="center">Cantidad</th>
+                <th class="center">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="
+              let producto of productos ; let i = index;">
+                <th>{{ i + 1 }}</th>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>{{ producto.estado !== false ? "ACTIVA" : "INACTIVA" }}</td>
+                <td>{{ producto.descuento !== false ? "SI" : "NO" }}</td>
+                <td>{{ producto.cantidad }}</td>
+                <td>
+                    <button type="button" (click)="btnClicEditar(producto.uid)" class="btn btn-info">Edit</button>
+                    <button type="button" (click)="deleteProducto(producto)" class="btn btn-warning">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

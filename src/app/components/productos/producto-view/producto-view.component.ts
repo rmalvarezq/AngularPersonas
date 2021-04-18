@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { producto } from '../../models/producto';
 
 @Component({
   selector: 'app-producto-view',
@@ -10,33 +11,57 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
 })
 export class ProductoViewComponent implements OnInit {
   productos = [];
+  producto: producto = {
+    uid: '',
+    imagen: '',
+    nombre: '',
+    precio: 0,
+    categoria: '',
+    descuento: true,
+    estado: true,
+    cantidad: 0,
+  };
   constructor(
-    private aut: AuthService,
+    private authService: AuthService,
     private db: AngularFirestore,
-    private route: Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    console.log('Si está ingresando acá');
+    // console.log('Si está ingresando acá');
+    this.getProductos();
   }
 
-  getJugadores() {
-    this.productos = [];
+  getProductos() {
     this.db
-      .collection('jugadores')
-      .get()
+      .collection('productos')
+      .snapshotChanges()
       .subscribe((colSnap) => {
+        this.productos = [];
         colSnap.forEach((snap) => {
-          let informacionAux: any = snap.data();
-          // this.informacion.push(informacionAux);
+          let producto: any = snap.payload.doc.data();
+          this.productos.push(producto);
         });
       });
-    // console.log(this.informacion);
+  }
+
+  deleteProducto(producto) {
+    this.db
+      .collection('productos')
+      .doc(producto.uid)
+      .delete()
+      .then((res) => {})
+      .catch((error) => {
+        //console.log(error);
+      });
+  }
+  btnClicEditar(id_producto: any) {
+    this.router.navigate(['product-edit', { id_producto }]);
   }
   createProduct() {
-    this.route.navigate(['product-create']);
+    this.router.navigate(['product-create']);
   }
   logout() {
-    this.aut.SignOut();
+    this.authService.SignOut();
   }
 }

@@ -1,1 +1,38 @@
-<p>producto-edit works!</p>
+<div class="container">
+    <table class="table">
+        <h3>Actualización de Productos</h3>
+        <div class="form-group">
+            <label for="producto.nombre">nombre</label>
+            <input type="text" class="form-control" placeholder="nombre" [(ngModel)]="producto.nombre" required />
+        </div>
+        <div class="form-group">
+            <label for="producto.precio">Precio</label>
+            <input type="number" class="form-control" [(ngModel)]="producto.precio">
+        </div>
+        <div class="form-group">
+            <label for="producto.categoria">Categoria</label>
+            <input type="text" class="form-control" placeholder="categoria" [(ngModel)]="producto.categoria" required>
+        </div>
+        <div class="form-group">
+            <label for="producto.estado">Estado</label>
+            <!-- <input type="text" class="form-control" placeholder="estado" [(ngModel)]="producto.estado" required> -->
+            <select class="form-control form-control-lg" [(ngModel)]="producto.estado">
+                <option [ngValue]="true">Activo</option>
+                <option [ngValue]="false">Inactivo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="producto.estado">Descuento</label>
+            <select class="form-control form-control-lg" [(ngModel)]="producto.descuento">
+                <option [ngValue]="true">si</option>
+                <option [ngValue]="false">no</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="producto.categoria">Cantidad</label>
+
+            <input type="number" class="form-control" placeholder="cantidad" [(ngModel)]="producto.cantidad" required>
+        </div>
+        <button type="button" (click)="updateProducto()" class="btn btn-primary">Crear Producto</button>
+    </table>
+</div>

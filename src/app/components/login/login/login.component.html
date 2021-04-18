@@ -1,21 +1,32 @@
-<div class="container">
-    <h3>Firebase Log In</h3>
-    <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
-    </div>
-    <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
-    </div>
-    <!-- Calling Login In Api from AuthService -->
-    <button type="button" (click)="authService.SignIn(userName.value, userPassword.value)"
-        class="btn btn-primary">Iniciar Sesión</button>
+<div class="container mt-5 d-flex p-2 justify-content-center">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top"
+            src="https://www.ecommercenews.pe/wp-content/uploads/2017/07/tienda-online-810x405.png"
+            alt="Card image cap">
+        <div class="card-body">
+            <div class="container">
+                <h3>Firebase Log In</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" #userName required>
+                </div>
+                <div class="formGroup">
+                    <input type="password" class="form-control" placeholder="Password" #userPassword required>
+                </div>
+            </div>
+            <div class="d-flex p-2 justify-content-center mt-4">
+                <button type="button" (click)="authService.SignIn(userName.value, userPassword.value)"
+                    class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="forgotPassword">
+                <span class="card-link" routerLink="/forgot-password">Forgot Password?</span>
+            </div>
+            <div class="redirectToLogin">
+                <span>Don't have an account?<span routerLink="/register-user"> Sign
+                        Up</span></span>
+            </div>
 
-    <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+        </div>
     </div>
-    <div class="redirectToLogin">
-        <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign
-                Up</span></span>
-    </div>
-    
 </div>
