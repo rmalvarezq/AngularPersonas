@@ -36,12 +36,18 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          localStorage.setItem('user', JSON.stringify(result.user));
+          console.log('*****funciona SigIN');
+          // this.router.navigate(['dashboard']);
+          console.log('Navega o no');
         });
-        this.SetUserData(result.user);
+        // this.SetUserData(result.user);
+        this.router.navigate(['product-view']);
       })
       .catch((error) => {
         window.alert(error.message);
+        console.log(error.message);
+        console.log('No hay error');
       });
   }
 
@@ -83,7 +89,8 @@ export class AuthService {
   //check user login
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null && user.emailVerified !== false ? true : false;
+    // return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null ? true : false;
   }
 
   //set full user data we get

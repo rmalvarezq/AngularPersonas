@@ -1,2 +1,22 @@
-<p>dashboard works!</p>
-<button (click)="logout()" >Logout</button>
+<div class="container">
+    <h3>Firebase Log In</h3>
+    <!-- <div class="formGroup">
+        <input type="text" class="formControl" placeholder="nombre" [(ngModel)]="nombre" required>
+    </div> -->
+    <!-- <div class="formGroup">
+        <input type="number" class="formControl"  [(ngModel)]="precio" >
+    </div> -->
+
+    <!-- <div class="formGroup">
+        <input type="text" class="formControl" placeholder="categoria" [(ngModel)]="categoria" required>
+    </div>
+    <div class="formGroup">
+        <input type="text" class="formControl" placeholder="estado" [(ngModel)]="estado" required>
+    </div>
+    <div class="formGroup">
+        <input type="number" class="formControl" placeholder="cantidad" [(ngModel)]="cantidad" required>
+    </div> -->
+    <!-- Calling Login In Api from AuthService -->
+    <button type="button" (click)="addproducto()" class="btn btn-primary">Crear Producto</button>
+</div>
+<button (click)="logout()">Logout</button>

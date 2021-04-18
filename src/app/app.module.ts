@@ -13,7 +13,11 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ProductoCreateComponent } from './components/productos/producto-create/producto-create.component';
+import { ProductoEditComponent } from './components/productos/producto-edit/producto-edit.component';
+import { ProductoViewComponent } from './components/productos/producto-view/producto-view.component';
+// import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +27,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ForgotPasswordComponent,
     DashboardComponent,
     NavbarComponent,
+    ProductoCreateComponent,
+    ProductoEditComponent,
+    ProductoViewComponent,
+    // ReactiveFormsModule,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NgbModule,
+    FormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
