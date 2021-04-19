@@ -18,6 +18,7 @@ import { ProductoEditComponent } from './components/productos/producto-edit/prod
 import { ProductoViewComponent } from './components/productos/producto-view/producto-view.component';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NgbModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
